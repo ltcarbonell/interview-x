@@ -1,0 +1,50 @@
+<!doctype html>
+
+<html ng-app="soccerApp">
+<head>
+  <title>Soccer Standings App</title>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"><!-- load bootstrap -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><!-- load jquery -->
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script><!-- load angular -->
+  <script src="core.js"></script>
+
+</head>
+<body ng-controller="adminController">
+  <div class="container">
+    <div class="jumbotron text-center">
+      <h1>Admin</h1>
+    </div>
+    <form name="match-form" ng-submit="addMatch();">
+      <div class="form-group row">
+        <div class="col-xs-6">
+          <label class="col-xs-6">Team 1 Name</label>
+          <div class="col-xs-6">
+            <select class="form-control" name="team1" ng-options="team as team.name for team in teams" ng-model="team1" required></select>
+          </div>
+        </div>
+        <div class="col-xs-6">
+          <label class="col-xs-2">Score</label>
+          <div class="col-xs-10">
+            <input class="form-control" name="team1Score" type="number" value="0" ng-model="team1Score" required>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-xs-6">
+          <label class="col-xs-6">Team 2 Name</label>
+          <div class="col-xs-6">
+            <select class="form-control" name="team2" ng-options="team as team.name for team in teams" ng-model="team2" required></select>
+          </div>
+        </div>
+        <div class="col-xs-6">
+          <label class="col-xs-2">Score</label>
+          <div class="col-xs-10">
+            <input class="form-control" name="team2Score" type="number" value="0" ng-model="team2Score" required>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" ng-disabled="match-form.$invalid">Add Match</button>
+    </form>
+  </div>
+</body>
+</html>
