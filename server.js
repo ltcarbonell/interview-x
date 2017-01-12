@@ -23,10 +23,8 @@ connection.connect(function(err){
 
 /* Routes */
 app.get('/api/standings', function(req, res) {
-  console.log("Api touched");
   connection.query('SELECT * FROM standings ORDER BY points DESC', function(err, rows, fields) {
     if (!err) {
-      console.log('The solution is: ', rows);
       res.json(rows);
     }
     else {
