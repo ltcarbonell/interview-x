@@ -35,18 +35,6 @@ app.get('/api/standings', function(req, res) {
   });
 })
 
-app.get('/api/standings', function(req, res) {
-  console.log("Api touched");
-  connection.query('SELECT * FROM standings ORDER BY points DESC', function(err, rows, fields) {
-    if (!err) {
-      res.json(rows);
-    }
-    else {
-      throw err;
-    }
-  });
-})
-
 app.get("",function(req,res){
   res.sendFile('index.html', {root: "./public"}); // load the single view file (angular will handle the page changes on the front-end)
 });
